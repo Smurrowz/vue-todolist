@@ -25,7 +25,11 @@ const app = new Vue({
     todos: todos,
     classiTodos: 'todo',
     newTodo: '',
-    alreadyDone,
+  },
+  computed:{
+    completedTodos: function(){
+      return this.todos.filter((el) => el.done === true)
+    }
   },
   methods: {
     toggleDone(todo) {
